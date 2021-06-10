@@ -81,8 +81,15 @@ except Exception as error_app:
 from APP_FILMS.database import database_tools
 from APP_FILMS.essais_wtf_forms import gestion_essai_wtf
 from APP_FILMS.essais_wtf_forms import gestion_wtf_forms_demo_select
-from APP_FILMS.genres import gestion_genres_crud
+from APP_FILMS.images import gestion_images_crud
 from APP_FILMS.zzzdemos import routes_demos
 
-from APP_FILMS.films_genres import gestion_films_genres_crud
+from APP_FILMS.drone_images import gestion_drone_images_crud
 from APP_FILMS.erreurs import msg_avertissements
+from APP_FILMS.drones import gestion_drone_crud
+from APP_FILMS.magasins import gestion_magasin_crud
+from APP_FILMS.gammes import gestion_gamme_crud
+from APP_FILMS.fonctionalites import gestion_fonctionalite_crud
+from APP_FILMS.lieux_decollage import gestion_lieu_decollage_crud
+from APP_FILMS.marques import gestion_marque_crud
+from APP_FILMS.typedrones import gestion_type_drone_crud

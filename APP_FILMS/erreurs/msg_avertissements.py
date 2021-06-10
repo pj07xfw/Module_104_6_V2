@@ -13,4 +13,4 @@ from APP_FILMS import obj_mon_application
 @obj_mon_application.route("/avertissement_sympa_pour_geeks")
 def avertissement_sympa_pour_geeks():
     # Envoie la page "HTML" au serveur.
-    return render_template("films_genres/avertissement_projet.html")
+    return render_template("drone_images/avertissement_projet.html")

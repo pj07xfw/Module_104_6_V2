@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %} Ajouter une Fonctionalite (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Ajouter une nouvelle fonctionalite (WTForms)
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form.nom_fonctionalite_wtf.label }}<br>
+						{{ form.nom_fonctionalite_wtf(size=32) }}<br>
+						{% for error in form.nom_fonctionalite_wtf.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+            <div class="form-group">
+					<p>
+						{{ form.nom_portee_drone_wtf.label }}<br>
+						{{ form.nom_portee_drone_wtf(size=32) }}<br>
+						{% for error in form.nom_portee_drone_wtf.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+            <div class="form-group">
+					<p>
+						{{ form.nom_poids_drone_wtf.label }}<br>
+						{{ form.nom_poids_drone_wtf(size=32) }}<br>
+						{% for error in form.nom_poids_drone_wtf.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+             <div class="form-group">
+					<p>
+						{{ form.nom_diagonale_drone_wtf.label }}<br>
+						{{ form.nom_diagonale_drone_wtf(size=32) }}<br>
+						{% for error in form.nom_diagonale_drone_wtf.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

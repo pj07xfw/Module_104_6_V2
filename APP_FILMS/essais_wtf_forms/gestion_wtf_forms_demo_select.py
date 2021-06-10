@@ -1,7 +1,7 @@
 """
-    Fichier : gestion_genres_crud.py
+    Fichier : gestion_images_crud.py
     Auteur : OM 2021.03.16
-    Gestions des "routes" FLASK et des données pour les genres.
+    Gestions des "routes" FLASK et des données pour les images.
 """
 import sys
 
@@ -20,13 +20,13 @@ from APP_FILMS.essais_wtf_forms.wtf_forms_demo_select import DemoFormSelectWTF
     Auteur : OM 2021.04.08
     Définition d'une "route" /genre_delete
     
-    Test : ex. cliquer sur le menu "genres" puis cliquer sur le bouton "DELETE" d'un "genre"
+    Test : ex. cliquer sur le menu "images" puis cliquer sur le bouton "DELETE" d'un "genre"
     
     Paramètres : sans
     
-    But : Effacer(delete) un genre qui a été sélectionné dans le formulaire "genres_afficher.html"
+    But : Effacer(delete) un genre qui a été sélectionné dans le formulaire "images_afficher.html"
     
-    Remarque :  Dans le champ "nom_genre_delete_wtf" du formulaire "genres/genre_delete_wtf.html",
+    Remarque :  Dans le champ "nom_genre_delete_wtf" du formulaire "images/images_delete_wtf.html",
                 le contrôle de la saisie est désactivée. On doit simplement cliquer sur "DELETE"
 """
 
@@ -47,7 +47,7 @@ def demo_select_wtf():
 
         if request.method == "GET":
             with MaBaseDeDonnee().connexion_bd.cursor() as mc_afficher:
-                strsql_genres_afficher = """SELECT id_genre, intitule_genre FROM t_genre ORDER BY id_genre ASC"""
+                strsql_genres_afficher = """SELECT id_images, chemin_images FROM t_images ORDER BY id_images ASC"""
                 mc_afficher.execute(strsql_genres_afficher)
 
             data_genres = mc_afficher.fetchall()
@@ -60,7 +60,7 @@ def demo_select_wtf():
             """
             genre_val_list_dropdown = []
             for i in data_genres:
-                genre_val_list_dropdown.append(i['intitule_genre'])
+                genre_val_list_dropdown.append(i["chemin_images"])
 
             # Aussi possible d'avoir un id numérique et un texte en correspondance
             # genre_val_list_dropdown = [(i["id_genre"], i["intitule_genre"]) for i in data_genres]

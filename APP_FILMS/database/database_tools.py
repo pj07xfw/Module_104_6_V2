@@ -3,7 +3,7 @@
     Auteur : OM 2021.03.03
     Connection à la base de données.
     Nécessite un fichier de configuration externe : ".env"
-    Nécessite un fichier DUMP en MySql de la BD : /database/NOM_PRENOM_INFO1X_SUJET_104_2021.sql
+    Nécessite un fichier DUMP en MySql de la BD : /database/RAPIN_Mathieu_INFO1d_Drones_104_2021.sql
 """
 import os
 import re
@@ -42,7 +42,7 @@ class Toolsbd:
             Auteur : OM 2021.03.09
             Nom : extract_name_bd_from_dump_file(self)
             But : Extrait la chaîne de caractère du nom de la base de donnée contenu dans le fichier :
-                    "NOM_PRENOM_INFO1X_SUJET_104_2021.sql"
+                    "RAPIN_Mathieu_INFO1d_Drones_104_2021.sql"
                     à la ligne de commande "USE NOM_PRENOM_INFO1X_SUJET_104_2021;"
         """
         extract_nom_bd = ""
@@ -69,7 +69,7 @@ class Toolsbd:
         """
             Auteur : OM 2021.03.09
             Nom : test_cmd_CRD_file_dump_sql(self)
-            Tester si il y a des problèmes éventuels sur le fichier : "NOM_PRENOM_INFO1X_SUJET_104_2021.sql"
+            Tester si il y a des problèmes éventuels sur le fichier : "RAPIN_Mathieu_INFO1d_Drones_104_2021.sql"
             Son emplacement, son nom, son ouverture et s'il contient les commandes MySql suivantes :
             DROP DATABASE IF EXIST nom_bd; CREATE DATABASE IF NOT EXISTS nom_bd; USE nom_bd;
             (Commandes obligatoires pour le MODULE 104, afin de garantir la dernière version de la BD)
@@ -80,7 +80,7 @@ class Toolsbd:
                 fichier_dump_sql_bd = open(NAME_FILE_DUMP_SQL_BD, "r", encoding="utf8")
                 lignes_fichier_dump = fichier_dump_sql_bd.read()
                 """
-                    Si le fichier DUMP en SQL "../database/NOM_PRENOM_INFO1X_SUJET_104_2021.sql" existe, 
+                    Si le fichier DUMP en SQL "../database/RAPIN_Mathieu_INFO1d_Drones_104_2021.sql" existe, 
                     on l'ouvre et il est "découpé" dans une LISTE ligne par ligne.
                     Dans une boucle FOR chaque élément de l liste (ligne du fichier) est "executée" sur le Serveur MySql
                     On valide la transaction par un "commit".

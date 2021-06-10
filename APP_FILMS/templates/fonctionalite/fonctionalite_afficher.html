@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %} Afficher Fonctionalite {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Fonctionalites à disposition.
+			</p>
+            <table class="table table-bordered table-sm">
+            {% if data %}
+                <thead>
+                    <tr>
+                        <th class="align-middle">
+                            id
+                        </th>
+                        <th class="align-middle">
+                            Autonomie
+                        </th>
+                        <th class="align-middle">
+                            Portée drone
+                        </th>
+                        <th class="align-middle">
+                            Poids
+                        </th>
+                        <th class="align-middle">
+                            Taille diagonale
+                        </th>
+                    </tr>
+                </thead>
+            {% endif %}
+
+            {% for row in data %}
+				<tbody>
+					<tr>
+						<td class="align-middle">
+							{{ row.id_fonctionalite }}
+						</td>
+						<td class="align-middle">
+							{{ row.autonomie }}
+						</td>
+                        <td class="align-middle">
+							{{ row.portee_drone }}
+						</td>
+                        <td class="align-middle">
+							{{ row.poids }}
+						</td>
+                        <td class="align-middle">
+							{{ row.taille_diagonale }}
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-primary" href="{{ url_for('fonctionalite_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-warning" href="{{ url_for('fonctionalite_update_wtf', id_fonctionalite_btn_edit_html=row.id_fonctionalite) }}" role="button">Edit</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-danger" href="{{ url_for('fonctionalite_delete_wtf', id_fonctionalite_btn_delete_html=row.id_fonctionalite) }}" role="button">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+            {% else %}
+				<tbody>
+					<tr>
+						<td>
+							Aucune fonctionalite.
+						</td>
+						<td>
+							<a class="btn btn-primary" href="{{ url_for('fonctionalite_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+					</tr>
+				</tbody>
+            {% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

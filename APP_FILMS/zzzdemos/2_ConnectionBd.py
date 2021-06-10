@@ -23,7 +23,7 @@ try:
         Il n'y a aucun contrôle, aucun test, sans traitements d'erreurs.
         Tous ces tests restent à découvrir dans le sujet suivant.
     """
-    strsql_genres_afficher = """SELECT id_genre, intitule_genre FROM t_genre ORDER BY id_genre ASC"""
+    strsql_genres_afficher = """SELECT id_images, chemin_images FROM t_images ORDER BY id_images ASC"""
     curseur_mabd.execute(strsql_genres_afficher)
     data_genres = curseur_mabd.fetchall()
 

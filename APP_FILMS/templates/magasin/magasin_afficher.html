@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %} Afficher magasin {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Magasins à disposition.
+			</p>
+            <table class="table table-bordered table-sm">
+            {% if data %}
+                <thead>
+                    <tr>
+                        <th class="align-middle">
+                            id
+                        </th>
+                        <th class="align-middle">
+                            Magasin
+                        </th>
+                        <th class="align-middle">
+                            Prix
+                        </th>
+                        <th class="align-middle">
+                            Réduction
+                        </th>
+                        <th class="align-middle">
+
+                        </th>
+                    </tr>
+                </thead>
+            {% endif %}
+
+            {% for row in data %}
+				<tbody>
+					<tr>
+						<td class="align-middle">
+							{{ row.id_magasin }}
+						</td>
+						<td class="align-middle">
+							{{ row.nom_magasin }}
+						</td>
+                        <td class="align-middle">
+							{{ row.prix }}
+						</td>
+                        <td class="align-middle">
+							{{ row.reduction }}
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-primary" href="{{ url_for('magasin_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-warning" href="{{ url_for('magasin_update_wtf', id_magasin_btn_edit_html=row.id_magasin) }}" role="button">Edit</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-danger" href="{{ url_for('magasin_delete_wtf', id_magasin_btn_delete_html=row.id_magasin) }}" role="button">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+            {% else %}
+				<tbody>
+					<tr>
+						<td>
+							Aucun magasin.
+						</td>
+						<td>
+							<a class="btn btn-primary" href="{{ url_for('magasin_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+					</tr>
+				</tbody>
+            {% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
